@@ -5,9 +5,9 @@ SlideWiki empowers communities of instructors, teachers, lecturers, academics to
 =========
 REQUIREMENTS
 
-a. Apache
-b. PHP 5.3 (for now the PHP 5.4 and upper versions cause bugs)
-c. MySQL
+1. Apache
+2. PHP 5.3 (for now the PHP 5.4 and upper versions cause bugs)
+3. MySQL
 
 =========
 INSTALLATION GUIDE
