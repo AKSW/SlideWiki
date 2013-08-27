@@ -12,7 +12,9 @@ REQUIREMENTS
 =========
 INSTALLATION GUIDE
 
-1. Download and extract SlideWiki.zip 
-2. Create an empty database
-3. Insert the default styles in the database
-4. Configure config.php
+1. Download and extract SlideWiki.zip
+2. Configure Apache
+3. Configure PHP
+4. Create an empty database
+5. Insert the default styles in the database
+6. Configure config.php
