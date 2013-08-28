@@ -16,5 +16,5 @@ INSTALLATION GUIDE
 2. Configure Apache
 3. Configure PHP
 4. Create an empty database
-5. Insert the default styles in the database
+5. Import slidewiki.sql.zip in the database
 6. Configure config.php
