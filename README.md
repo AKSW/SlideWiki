@@ -5,16 +5,42 @@ SlideWiki empowers communities of instructors, teachers, lecturers, academics to
 =========
 REQUIREMENTS
 
-1. Apache
+1. Apache 2.2 or higher
 2. PHP 5.3 (for now the PHP 5.4 and upper versions cause bugs)
-3. MySQL
+3. MySQL 5.5 or higher
 
 =========
 INSTALLATION GUIDE
 
-1. Download and extract SlideWiki.zip
-2. Configure Apache
-3. Configure PHP
-4. Create an empty database
-5. Import slidewiki.sql.zip in the database
-6. Configure config.php
+1. Download and extract SlideWiki
+2. Create an empty database
+3. Import slidewiki.sql.zip in the recently created database
+4. Configure config.php
+
+Copy the config.php-example file to config.php. 
+
+Change the configuration accordingly to your database and site settings.
+
+Be sure to grant ALL privileges to slidewiki database for the user specified in config.php
+
+5. Check the configuration. 
+
+For now the index page of slidewiki should be already shown. 
+
+However, you will probably need to configure your Apache and PHP installations before SlideWiki will be ready to use.
+
+5. Configure Apache 
+
+To work properly, SlideWiki requires next modules to be enabled:
+- 
+-
+-
+-
+-
+-
+-
+-
+
+6. Configure PHP
+
+To work properly, SlideWiki requires php_curl and php_tidy modules to be enabled.
