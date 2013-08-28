@@ -16,21 +16,15 @@ INSTALLATION GUIDE
 2. Create an empty database
 3. Import slidewiki.sql.zip in the recently created database
 4. Configure config.php
-
-Copy the config.php-example file to config.php. 
-
+Copy the config.php-example file to config.php.
 Change the configuration accordingly to your database and site settings.
-
 Be sure to grant ALL privileges to slidewiki database for the user specified in config.php
 
-5. Check the configuration. 
-
-For now the index page of slidewiki should be already shown. 
-
+5. Check the configuration.
+For now the index page of slidewiki should be already shown.
 However, you will probably need to configure your Apache and PHP installations before SlideWiki will be ready to use.
 
-5. Configure Apache 
-
+5. Configure Apache
 To work properly, SlideWiki requires next modules to be enabled:
 - 
 -
@@ -42,5 +36,4 @@ To work properly, SlideWiki requires next modules to be enabled:
 -
 
 6. Configure PHP
-
 To work properly, SlideWiki requires php_curl and php_tidy modules to be enabled.
