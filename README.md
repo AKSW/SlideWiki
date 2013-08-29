@@ -30,7 +30,7 @@ INSTALLATION GUIDE
             define('DB_PASSWORD', 'USER_PASSWORD'); //the password of the user
             define('BASE_PATH', 'YOUR_ROOT_LOCATION'); //URL path of index.php 
             
-    + Be sure to grant ALL privileges for the slidewiki database to the user specified in config.php 
+        Be sure to grant ALL privileges for the slidewiki database to the user specified in config.php 
 
 5. Check the configuration.   
     For now the index page of slidewiki should be already shown. However, you will need to configure your Apache and PHP installations before SlideWiki will be ready to use.   
