@@ -32,9 +32,9 @@ Additionally, the server must allow to overwrite the configuration with .htacces
 
 > DocumentRoot "c:/wamp/www/"   
 > ...   
-> <Directory "c:/wamp/www/">
+> \<Directory "c:/wamp/www/"\>
 >     AllowOverride all
-> </Directory>
+> \</Directory\>
 
 
 
