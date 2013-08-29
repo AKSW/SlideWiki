@@ -25,18 +25,19 @@ For now the index page of slidewiki should be already shown.
 However, you will probably need to configure your Apache and PHP installations before SlideWiki will be ready to use.   
 
 5. Configure Apache   
-To work properly, SlideWiki requires mod_rewrite module to be enabled. Thus, be sure to uncomment the following line in htppd.conf:  
-LoadModule rewrite_module modules/mod_rewrite.s  
+To work properly, SlideWiki requires rewrite_module to be enabled. Thus, be sure to uncomment the following line in htppd.conf:  
 
-Additionally, the server must allow to overwrite the configuration with .htaccess files:
+> LoadModule rewrite_module modules/mod_rewrite.s   
 
-> DocumentRoot "c:/wamp/www/"   
-> ...   
-> \<Directory "c:/wamp/www/"\>
->     AllowOverride all
-> \</Directory\>
+Additionally, the server must allow to use directives from .htaccess files. For this, your httpd.conf should include 
+the following lines (YOUR_DOCUMENT_ROOT means the root directory for slidewiki, for example, c:/wamp/www/slidewiki)
 
-
+> DocumentRoot "YOUR_DOCUMENT_ROOT"   
+...   
+\<Directory "YOUR_DOCUMENT_ROOT\>   
+AllowOverride all   
+\</Directory\> 
 
 6. Configure PHP   
-To work properly, SlideWiki requires php_curl and php_tidy modules to be enabled.   
+To work properly, SlideWiki requires php_curl and php_tidy modules to be enabled. For that, uncomment the following
+lines in php.ini:
