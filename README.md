@@ -32,8 +32,8 @@ INSTALLATION GUIDE
             
         Be sure to grant ALL privileges for the slidewiki database to the user specified in config.php 
 
-5. Check the configuration.   
-    For now the index page of slidewiki should be already shown. However, you will need to configure your Apache and PHP installations before SlideWiki will be ready to use.   
+5. Check the configuration.     
+    Restart Apache service. For now the index page of slidewiki should be already shown. However, you will need to configure your Apache and PHP installations before SlideWiki will be ready to use.   
 
 6. Configure Apache   
     To work properly, SlideWiki requires rewrite_module to be enabled. Thus, be sure to uncomment the following line in htppd.conf:  
@@ -59,6 +59,8 @@ lines in php.ini:
 
     Additionaly, you need to copy **ssleay32.dll**, **libeay32.dll** and **php_curl.dll** from PHP directory to system directory (e.g. C:\WINDOWS\System32)
 
+8. Restart Apache to complete the SlideWiki installation.    
+    Your new SlideWiki includes default themes and transitions as well as documentation, that can be found on **http://YOUR_ROOT_LOCATION/documentation**
 
 
 
