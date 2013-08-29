@@ -17,7 +17,7 @@ INSTALLATION GUIDE
 
 2. Create an empty database 
 
-3. Import slidewiki.sql.zip into the recently created database
+3. Import **slidewiki/db/slidewiki.sql.zip** into the recently created database
 
 4. Configure the installation 
     + Copy the **slidewiki/application/config/config.php-example** file to **slidewiki/application/config/config.php**.   
