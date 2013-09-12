@@ -1,0 +1,206 @@
+
+/*
+ * Deck.js Theme
+ * for Leipzig School of Media
+ *
+ * @author Michael Haschke, http://michael.haschke.biz/
+ *
+ */
+html {
+    margin: 0;
+    padding: 0; }
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 1em;
+    margin: 0;
+    padding: 0; }
+
+.deck-container {
+    font-size: 1.563em;
+    background: #eee;
+    color: #000;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    position: relative; }
+    .deck-container .hideme {
+        position: absolute;
+        left: -5000em;
+        top: -5000em;
+        outline: none; }
+    .deck-container .deck-header {
+        background: #e53434;
+        color: #fff;
+        display: block;
+        height: 4.68em;
+        position: fixed;
+        top: 0;
+        left: 7em;
+        right: 5em;
+        z-index: 100; }
+        .deck-container .deck-header .title-from-current-deck {
+            font-size: 1.04em;
+            font-weight: bold;
+            position: absolute;
+            left: 0.962em;
+            bottom: 0.962em;
+            max-width: 70%; }
+    .deck-container.on-slide-0 .deck-header {
+        background: #909793; }
+    .deck-container #lsom-logo {
+        display: block;
+        font-size: 0.8em;
+        font-weight: bold;
+        text-transform: lowercase;
+        line-height: 28/20;
+        position: absolute;
+        right: 1em;
+        bottom: 1em; }
+        .deck-container #lsom-logo span {
+            display: table-cell;
+            vertical-align: bottom;
+            padding: 0.2em; }
+            .deck-container #lsom-logo span:last-child {
+                border: solid 1px #fff;
+                padding-top: 1em;
+                -moz-border-radius: 0.12em;
+                -webkit-border-radius: 0.12em;
+                -ms-border-radius: 0.12em;
+                -o-border-radius: 0.12em;
+                border-radius: 0.12em; }
+    .deck-container .deck-footer {
+        background: #fff;
+        color: #000;
+        display: block;
+        height: 1.2em;
+        line-height: 1;
+        position: fixed;
+        bottom: 0;
+        left: 7em;
+        right: 5em;
+        z-index: 100; }
+        .deck-container .deck-footer > div {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            padding: 0;
+            margin: 0; }
+            .deck-container .deck-footer > div > span {
+                font-size: 0.6em;
+                color: #000;
+                line-height: 1;
+                display: block;
+                float: left;
+                padding: 0 0.25em; }
+        .deck-container .deck-footer .deck-status {
+            left: 0;
+            width: 2.4em; }
+            .deck-container .deck-footer .deck-status span {
+                display: none; }
+                .deck-container .deck-footer .deck-status span.deck-status-current {
+                    display: block; }
+        .deck-container .deck-footer .deck-meta {
+            padding: 0 0.25em;
+            left: 2.4em;
+            right: 1em;
+            border-style: none solid;
+            border-width: 0.16em;
+            border-color: #e53434; }
+            .deck-container .deck-footer .deck-meta .deck-meta-title {
+                float: right; }
+    .deck-container.on-slide-0 .deck-footer {
+        visibility: hidden; }
+        .deck-container.on-slide-0 .deck-footer .deck-meta-author {
+            visibility: visible;
+            color: #fff;
+            font-size: 1.04em;
+            font-weight: bold;
+            position: absolute;
+            top: -2em;
+            left: -2em; }
+    .deck-container .slide {
+        display: block !important;
+        height: auto !important;
+        width: auto !important;
+        min-height: inherit !important;
+        padding: 5.6em 3em 2.4em 3em !important;
+        position: absolute !important;
+        top: 0 !important;
+        right: 5em !important;
+        bottom: 0 !important;
+        left: 5em !important;
+        overflow: hidden;
+        background: #fff; }
+        .deck-container .slide h1 {
+            background: #e53434;
+            color: #fff;
+            font-size: 2.8em;
+            font-weight: bold;
+            text-align: left;
+            margin: 0;
+            padding: 0.268em 25% 0.268em 0.357em;
+            -moz-transform: none !important;
+            -webkit-transform: none !important;
+            -o-transform: none !important;
+            -ms-transform: none !important;
+            transform: none !important;
+            position: absolute;
+            top: 2em;
+            right: 0;
+            bottom: 0;
+            left: 0.714em; }
+        .deck-container .slide h2 {
+            font-size: 1.04em;
+            font-weight: bold;
+            position: absolute;
+            left: -5000em;
+            top: -5000em; }
+        .deck-container .slide ul, .deck-container .slide ol, .deck-container .slide dl, .deck-container .slide dt, .deck-container .slide dd {
+            margin-left: 1em;
+            padding-left: 0; }
+        .deck-container .slide dl, .deck-container .slide dt, .deck-container .slide dd {
+            margin-left: 0;
+            padding-left: 0; }
+        .deck-container .slide a {
+            color: #e53434;
+            text-decoration: underline; }
+            .deck-container .slide a:hover, .deck-container .slide a:focus, .deck-container .slide a:active {
+                text-decoration: none; }
+        .deck-container .slide img {
+            width: auto;
+            height: auto;
+            max-width: 75%;
+            margin-bottom: 0.5em; }
+        .deck-container .slide figure {
+            width: auto;
+            height: auto;
+            max-width: 100%; }
+            .deck-container .slide figure figcaption {
+                font-size: 0.75em !important; }
+    .deck-container .deck-prev-link, .deck-container .deck-next-link {
+        font-family: serif;
+        font-size: 1em;
+        line-height: 1.5em;
+        height: 1.5em;
+        width: 1.5em;
+        -moz-border-radius: 1.5em;
+        -webkit-border-radius: 1.5em;
+        -o-border-radius: 1.5em;
+        -ms-border-radius: 1.5em;
+        border-radius: 1.5em;
+        position: fixed;
+        color: #fff;
+        background: #909793;
+        opacity: 0.5;
+        margin-top: -0.75em;
+        margin-left: -0.75em; }
+        .deck-container .deck-prev-link:active, .deck-container .deck-next-link:active {
+            opacity: 0.5; }
+        .deck-container .deck-prev-link:hover, .deck-container .deck-prev-link:focus, .deck-container .deck-next-link:hover, .deck-container .deck-next-link:focus {
+            opacity: 1;
+            background: #e53434; }
+    .deck-container .deck-prev-link {
+        left: 2.75em; }
+    .deck-container .deck-next-link {
+        right: 1.75em; }

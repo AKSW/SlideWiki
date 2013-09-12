@@ -1,0 +1,48 @@
+div.color_picker {
+  padding: 1 !important;
+  line-height: 16px;
+  position:relative;
+  float:left;
+  width:16px;
+  height:16px;
+  margin:0 2px 0 0;
+  color:#999;
+  font-size:9px;
+  text-align:center;
+  text-indent:-5000px;
+  text-transform:uppercase;
+
+
+  -webkit-border-radius:5px;
+  -moz-border-radius:   5px;
+  border-radius:        5px;
+
+  -webkit-box-shadow: 0px 1px 0px rgba(255,255,255,0.75), inset 0px 1px 0px rgba(0,0,0,0.03);
+  -moz-box-shadow:    0px 1px 0px rgba(255,255,255,0.75), inset 0px 1px 0px rgba(0,0,0,0.03);
+  box-shadow:         0px 1px 0px rgba(255,255,255,0.75), inset 0px 1px 0px rgba(0,0,0,0.03);
+  
+  cursor:pointer;
+  overflow:hidden;
+}
+
+div#color_selector {
+  width: 110px;
+  position: absolute;
+  border: 1px solid #598FEF;
+  background-color: #EFEFEF;
+  padding: 2px;
+	z-index:345;
+}
+  div#color_custom {width: 100%; float:left }
+  div#color_custom label {font-size: 95%; color: #2F2F2F; margin: 5px 2px; width: 25%}
+  div#color_custom input {margin: 5px 2px; padding: 0; font-size: 95%; border: 1px solid #000; width: 65%; }
+
+div.color_swatch {
+  height: 12px;
+  width: 12px;
+  border: 1px solid #000;
+  margin: 2px;
+  float: left;
+  cursor: pointer;
+  line-height: 12px;
+}

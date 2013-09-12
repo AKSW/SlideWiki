@@ -1,0 +1,16 @@
+<?php
+
+/** Configuration Variables **/
+// enable error reporting
+define ('DEVELOPMENT_ENVIRONMENT',true);
+
+// db stuff
+define('DB_DSN', 'mysql:dbname=slidewiki;host=localhost;charset=utf8');
+define('DB_NAME', 'slidewiki');
+define('DB_USER', 'slidewiki');
+define('DB_PASSWORD', 'sw123');
+//base path for mode rewrite
+define('BASE_PATH', 'http://localhost/swiki/');
+
+
+

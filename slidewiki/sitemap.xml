@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url>
+  <loc>http://slidewiki.org/</loc>
+  <changefreq>hourly</changefreq>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://slidewiki.org/documentation/</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://slidewiki.org/deck/create</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://slidewiki.org/feed/decks/featured</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://slidewiki.org/feed/decks/new</loc>
+  <changefreq>hourly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://slidewiki.org/activities</loc>
+  <changefreq>hourly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://slidewiki.org/imprint</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>http://slidewiki.org/termsOfUse</loc>
+  <changefreq>monthly</changefreq>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>http://slidewiki.org/deck/750</loc>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+</urlset>

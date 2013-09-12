@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>builder4impress - extremely WYSIWYG editor for impress.js | by @naugtur</title>
+    
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+
+    <!-- style.css is needed for the presentation to look ok, the rest is up to you -->
+    <link href="style.css" rel="stylesheet" />
+    <link href="css/builder.css" rel="stylesheet" />
+    
+    <link rel="shortcut icon" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+
+
+<body class="impress-not-supported">
+
+<!--
+    For example this fallback message is only visible when there is `impress-not-supported` class on body.
+-->
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+
+<div id="impress">
+    
+    <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
+    </div>
+    
+    <div id="start" class="step slide" data-x="-1000" data-y="-1500">
+        <h1>builder4impress</h1>
+        <p>This tool allows WYSIWYG editing of impress.js presentations. This is an alpha version.</p>
+        <p>Stop your pointer over a slide to activate the controls. </p>
+        <p>You can start with changing this slide's contents and add some more after that.</p>
+        <p>use <code>Get file</code> to download your presentation html. <br> You will need <a href="style.css">style.css</a> too.</p>
+        <p>Missing features: delete or rearrange steps, saving to edit later.</p>
+    </div>
+
+   
+    
+
+</div>
+
+
+<script src="js/impress.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+<script src="js/FileSaver.min.js"></script>
+<script src="js/builder.js"></script>
+<script>
+  
+  var iAPI=impress();
+  iAPI.init();
+
+Builder.init({
+  "goto":iAPI['goto'], //it makes me feel better this way
+  creationFunction:iAPI.newStep, //future API method that adds a new step
+  redrawFunction:iAPI.initStep, //future API method that (re)draws the step
+  setTransformationCallback:iAPI.setTransformationCallback //future API method that lets me know when transformations change
+});
+</script>
+
+</body>
+</html>

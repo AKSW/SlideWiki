@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- generator="FeedCreator 1.7.2-ppt (info@mypapit.net)" -->
+<rdf:RDF
+    xmlns="http://purl.org/rss/1.0/"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel rdf:about="http://www.dailyphp.net//web/lab/feed/official_demo.php">
+        <title>PHP news</title>
+        <description>daily news from the PHP scripting world</description>
+        <link>http://www.dailyphp.net/news</link>
+        <image rdf:resource="http://www.dailyphp.net/images/logo.gif" />
+       <dc:date>2005-11-25T15:16:24+01:00</dc:date>
+        <items>
+            <rdf:Seq>
+            </rdf:Seq>
+        </items>
+    </channel>
+    <image rdf:about="http://www.dailyphp.net/images/logo.gif">
+        <title>dailyphp.net logo</title>
+        <link>http://www.dailyphp.net</link>
+        <url>http://www.dailyphp.net/images/logo.gif</url>
+    </image>
+</rdf:RDF>

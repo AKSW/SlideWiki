@@ -1,0 +1,82 @@
+	#home_carousel{
+		margin-left:100px;
+	}
+	#home_carousel h2{
+		padding-left:40px;
+	}
+	#home_carousel p{
+		padding-left:40px;
+	}	
+   .roundabout-holder {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      height: 250px;
+      width: 700px;
+   }
+   .roundabout-moveable-item {
+      height: 250px;
+      width: 900px;
+      cursor: pointer;
+      background-color: #fff;
+   	  border: 0.5px solid #000;
+   	  border-radius: 8px;
+   }
+   .roundabout-in-focus {
+      cursor: auto;
+   }
+#wysiwyg{
+background-image:url(../../static/img/carousel/wysiwyg.jpg);
+background-repeat:no-repeat;
+background-position:right; 
+}
+#logical{
+background-image:url(../../static/img/carousel/logical.jpg);
+background-repeat:no-repeat;
+background-position:right; 
+}
+#mathml{
+background-image:url(../../static/img/carousel/mathml.jpg);
+background-repeat:no-repeat;
+background-position:right; 
+}
+#multilingual{
+background-image:url(../../static/img/carousel/multilingual.jpg);
+background-repeat:no-repeat;
+background-position:right; 
+}
+#import{
+background-image:url(../../static/img/carousel/import.jpg);
+background-repeat:no-repeat;
+background-position:right; 
+}
+#sourcehighlighting{
+background-image:url(../../static/img/carousel/sourcehighlighting.jpg);
+background-repeat:no-repeat;
+background-position:right; 
+}
+#theme{
+background-image:url(../../static/img/carousel/theme.jpg);
+background-repeat:no-repeat;
+background-position:right; 
+}
+#revisioning{
+background-image:url(../../static/img/carousel/revisioning.jpg);
+background-repeat:no-repeat;
+background-position:right; 
+}
+#elearning{
+background-image:url(../../static/img/carousel/elearning.jpg);
+background-repeat:no-repeat;
+background-position:right; 
+}
+#socialnet{
+background-image:url(../../static/img/carousel/socialnet.jpg);
+background-repeat:no-repeat;
+background-position:right; 
+}
+#remote{
+background-image:url(../../static/img/carousel/remote.jpg);
+background-repeat:no-repeat;
+background-position:right; 
+}

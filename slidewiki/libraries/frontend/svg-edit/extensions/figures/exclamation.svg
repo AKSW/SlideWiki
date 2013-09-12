@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="159" height="116" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+ <g>
+  <metadata id="svg_40">image/svg+xml</metadata>
+  <defs transform="translate(-0) scale(1) translate(0)">
+   <linearGradient id="svg_25">
+    <stop stop-color="#7918e8" id="svg_39" offset="0"/>
+    <stop stop-color="#4c0f92" id="svg_38" offset="1"/>
+   </linearGradient>
+   <linearGradient id="svg_26">
+    <stop stop-color="#ffffff" id="svg_35" offset="0"/>
+    <stop stop-color="#efefef" id="svg_34" offset="1"/>
+   </linearGradient>
+   <linearGradient gradientTransform="matrix(1.3173447847366333,0,0,1.3173447847366333,-143.1623992919922,-29.336158752441406)" y2="62.982925" x2="199.26038" y1="62.982925" x1="167.27213" gradientUnits="userSpaceOnUse" id="svg_15" xlink:href="#svg_26"/>
+   <linearGradient y2="62.982925" x2="199.26038" y1="62.982925" x1="167.27213" gradientUnits="userSpaceOnUse" id="svg_16" xlink:href="#svg_25"/>
+   <linearGradient gradientTransform="matrix(1.2351691,0,0,1.0907363,-60.642719,59.374124)" gradientUnits="userSpaceOnUse" y2="-5.41799" x2="201.89285" y1="-5.41799" x1="189.55688" id="svg_13" xlink:href="#svg_25"/>
+  </defs>
+  <path fill="#5151a3" fill-rule="nonzero" stroke-opacity="0.211538" id="svg_23" d="m79.411804,-0.000519c-43.830505,0 -79.411163,24.505554 -79.411163,54.66983c0,18.009766 12.68573,33.96814 32.233765,43.925201c-5.070557,4.689392 -11.797211,10.576477 -19.389679,16.343323c16.928436,1.65332 32.661682,0.347931 46.642273,-7.368896c6.365082,1.132782 13.047607,1.729034 19.924805,1.729034c43.830536,0 79.411194,-24.464417 79.411194,-54.628662c0,-30.164246 -35.580658,-54.6698 -79.411194,-54.66983z"/>
+  <path fill="#aaaaff" fill-rule="nonzero" stroke-opacity="0.211538" d="m78.854218,3.791214c-40.198868,0 -74.392731,24.316971 -74.392731,52.327271c0,16.72374 16.09549,32.657791 34.023834,41.903854c-4.650436,4.354492 -10.150604,8.929016 -17.113983,14.284088c24.447495,1.312225 33.747162,-8.152527 38.762848,-8.850098c5.837677,1.05191 13.751343,1.308441 20.058258,1.382538c37.5224,0.446075 74.838867,-21.825287 74.838867,-49.835587c0,-28.010315 -35.97821,-51.212067 -76.177094,-51.212067z" id="svg_21"/>
+  <path opacity="0.55" fill="#ffffff" fill-rule="nonzero" stroke-opacity="0.211538" id="svg_17" d="m23.532257,30.430309c3.838058,3.120731 7.530579,5.053581 11.975922,7.255192c2.80574,1.342339 5.881332,2.55616 9.180206,3.622707c3.29892,1.066532 6.78891,2.00729 10.497604,2.758183c3.708725,0.750889 7.615067,1.333649 11.650284,1.729019c4.035217,0.39537 8.236359,0.6175 12.51474,0.6175c2.543976,0 5.009247,-0.177959 7.451263,-0.493999c2.441986,-0.316032 4.826111,-0.804119 7.163055,-1.358521c4.673889,-1.108749 9.144196,-2.602959 13.379272,-4.199032c4.235138,-1.596058 8.249237,-3.272308 12.020782,-4.7342c3.771576,-1.461906 7.296692,-2.710609 10.579926,-3.41687c3.410828,-0.653629 6.034485,-0.88271 8.6586,-3.155701c-14.287048,-11.808388 -34.863586,-21.379838 -57.935516,-21.379838c-23.36792,0 -43.363907,10.372439 -57.136139,22.755559z"/>
+  <title>Layer 1</title>
+  <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+  <title>Layer 1</title>
+  <g id="svg_11">
+   <path fill="url(#svg_15)" fill-rule="nonzero" stroke="url(#svg_16)" id="svg_14" d="m91.490356,87.134422a11.04004,11.04004 0 1 1-22.080078,0a11.04004,11.04004 0 1 122.080078,0z"/>
+   <rect fill="#ffffff" fill-rule="evenodd" stroke="url(#svg_13)" stroke-width="1.160708" stroke-linejoin="bevel" stroke-miterlimit="4" stroke-dashoffset="0" rx="2.958399" y="12.577466" x="71.953664" height="56.441088" width="17.631693" id="svg_12"/>
+  </g>
+  <!-- Created with SVG-edit - http://svg-edit.googlecode.com/ -->
+  <title>Layer 1</title>
+ </g>
+</svg>

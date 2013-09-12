@@ -1,0 +1,15 @@
+.x-btn button.aloha-button-imageManager {
+    background: url( '../img/image.png' );
+}
+.x-btn button.aloha-button-SVGManager {
+    background: url( '../img/svg.png' );
+}
+.x-btn button.aloha-button-MathJaxButton {
+    background: url( '../img/math.png' );
+}
+.x-btn button.aloha-button-CodeButton {
+    background: url( '../img/code.png' );
+}
+.x-btn button.aloha-button-easyQuestion {
+    background: url( '../img/question.png' );
+}

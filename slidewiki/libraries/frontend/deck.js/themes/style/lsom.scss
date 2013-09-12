@@ -1,0 +1,345 @@
+/*
+ * Deck.js Theme
+ * for Leipzig School of Media
+ *
+ * @author Michael Haschke, http://michael.haschke.biz/
+ *
+ */
+
+$fontsize: 25px;
+
+html
+{
+	margin: 0;
+	padding: 0;
+}
+
+body
+{
+	font-family: Arial, sans-serif;
+	font-size:1em;
+	margin: 0;
+	padding: 0;
+}
+
+.deck-container {
+	font-size: ($fontsize/16px) * 1em;
+	background: #eee;
+	color: #000;
+	width: auto;
+	margin: 0;
+	padding:0;
+	position: relative;
+
+	.hideme
+	{
+	    position: absolute;
+	    left: -5000em;
+	    top: -5000em;
+	    outline: none;
+	}
+	
+	.deck-header
+	{
+	    background: #e53434;
+	    color: #fff;
+	    
+	    display: block;
+	    height: (117px/$fontsize) * 1em;
+	    
+	    position: fixed;
+	    top: 0;
+	    left: 7em;
+	    right: 5em;
+	    
+	    z-index: 100;
+	    
+	    .title-from-current-deck
+	    {
+	        font-size: (26px/$fontsize) * 1em;
+	        font-weight: bold;
+	        
+	        position: absolute;
+	        left: ($fontsize/26px) * 1em;
+	        bottom: ($fontsize/26px) * 1em;
+	        
+	        max-width: 70%;
+	    }
+	}
+	
+	&.on-slide-0 .deck-header
+	{
+	    background: #909793;
+	}
+	
+	#lsom-logo
+	{
+	    display: block;
+	    font-size: (20px/$fontsize) * 1em;
+	    font-weight: bold;
+	    text-transform: lowercase;
+	    line-height: 28/20;
+	    
+	    position: absolute;
+	    right: 1em;
+	    bottom: 1em;
+	    
+	    span
+	    {
+	        display: table-cell;
+	        vertical-align: bottom;
+	        padding: (5px/$fontsize) * 1em;
+	        
+	        &:last-child
+	        {
+	            border: solid 1px #fff;
+	            padding-top: 1em;
+	            -moz-border-radius: (3px/$fontsize) * 1em;
+	            -webkit-border-radius: (3px/$fontsize) * 1em;
+	            -ms-border-radius: (3px/$fontsize) * 1em;
+	            -o-border-radius: (3px/$fontsize) * 1em;
+	            border-radius: (3px/$fontsize) * 1em;
+            }
+	    }
+	}
+	
+	.deck-footer
+	{
+	    background: #fff;
+	    color: #000;
+	    
+	    display: block;
+	    height: (30px/$fontsize) * 1em;
+	    
+	    line-height: 1;
+	    
+	    position: fixed;
+	    bottom: 0;
+	    left: 7em;
+	    right: 5em;
+	    
+	    z-index: 100;
+	    
+	    & > div
+	    {
+	        position: absolute;
+	        top: 0;
+	        bottom: 0;
+	        padding: 0;
+	        margin: 0;
+	        
+	        & > span
+	        {
+	            font-size: (15px/$fontsize) * 1em;
+	            color: #000;
+	            line-height: 1;
+	            display: block;
+	            float: left;
+	            padding: 0 0.25em;
+	        }
+	    }
+	    
+	    .deck-status
+	    {
+	        left: 0;
+	        width: (60px/$fontsize) * 1em;
+	        
+	        span
+	        {
+	            display: none;
+	            
+	            &.deck-status-current
+	            {
+	                display: block;
+	            }
+	        }
+	    }
+	    
+	    .deck-meta
+	    {
+	        padding: 0 0.25em;
+	        
+	        left: (60px/$fontsize) * 1em;
+	        right: 1em;
+	        
+	        border-style: none solid;
+	        border-width: (4px/$fontsize) * 1em;
+	        border-color: #e53434;
+	        
+	        .deck-meta-title
+	        {
+	            float: right;
+	        }
+	    }
+	}
+
+	
+	&.on-slide-0 .deck-footer
+	{
+	    visibility: hidden;
+	    
+	    .deck-meta-author
+	    {
+	        visibility: visible;
+	        color: #fff;
+	        font-size: (26px/$fontsize) * 1em;
+		    font-weight: bold;
+		    position: absolute;
+		    top: -2em;
+		    left: -2em;
+	    }
+	}
+	
+	.slide {
+	
+	    display: block !important;
+	    height: auto !important; width: auto !important; min-height: inherit !important;
+	    padding: (140px/$fontsize) * 1em 3em (60px/$fontsize) * 1em 3em !important;
+	    
+	    position: absolute !important;
+	    top: 0 !important; right: 5em !important;
+	    bottom: 0 !important; left: 5em !important;
+	    
+	    overflow: hidden;
+
+	    background: #fff;
+		
+		h1 {
+		    background: #e53434;
+		    color: #fff;
+		    
+		    font-size: (70px/$fontsize) * 1em;
+		    font-weight: bold;
+		    
+		    text-align: left;
+		    
+		    margin: 0;
+		    padding: ($fontsize/70px) * 0.75em 25% ($fontsize/70px) * 0.75em ($fontsize/70px) * 1em;
+		    
+		    -moz-transform: none !important;
+		    -webkit-transform: none !important;
+		    -o-transform: none !important;
+		    -ms-transform: none !important;
+		    transform: none !important;
+		    
+		    position: absolute;
+		    top: ($fontsize/70px) * (140px/$fontsize) * 1em;
+		    right: 0;
+		    bottom: 0;
+		    left: ($fontsize/70px) * 2em;
+		}
+
+		h2 {
+		    font-size: (26px/$fontsize) * 1em;
+		    font-weight: bold;
+		    position: absolute;
+		    left: -5000em;
+		    top: -5000em;
+		}
+
+		h3 {
+		}
+
+		pre {
+		}
+
+		code {
+		}
+
+		blockquote {
+
+			p {
+			}
+
+			cite {
+			}
+		}
+		
+		ul, ol, dl, dt, dd
+		{
+		    margin-left: 1em;
+		    padding-left: 0;
+		}
+
+		dl, dt, dd
+		{
+		    margin-left: 0;
+		    padding-left: 0;
+		}
+
+		a {
+		    color: #e53434;
+		    text-decoration: underline;
+		    
+			&:hover, &:focus, &:active {
+			    text-decoration: none;
+			}
+		}
+		
+		img
+		{
+		    width: auto;
+		    height: auto;
+		    max-width: 75%;
+		    margin-bottom: 0.5em;
+		}
+		
+		figure
+		{
+		    width: auto;
+		    height: auto;
+		    max-width: 100%;
+		    
+		    figcaption
+		    {
+		        font-size: 0.75em !important;
+		    }
+		}
+		
+	}
+	
+	.deck-prev-link, .deck-next-link {
+		font-family:serif; // sans-serif arrows x-browser fail
+		
+		font-size: 1em;
+		line-height: 1.5em;
+		height: 1.5em; width: 1.5em;
+		-moz-border-radius: 1.5em;
+		-webkit-border-radius: 1.5em;
+		-o-border-radius: 1.5em;
+		-ms-border-radius: 1.5em;
+		border-radius: 1.5em;
+		
+		position: fixed;
+		color: #fff;
+		background: #909793;
+		opacity: 0.5;
+		
+		margin-top: -0.75em;
+		margin-left: -0.75em;
+		
+		&:active {
+		    opacity: 0.5;
+		}
+		
+		&:hover, &:focus {
+		    opacity: 1;
+		    background: #e53434;
+		}
+		
+	}
+
+	.deck-prev-link { left: 2.75em; }
+	.deck-next-link { right: 1.75em; }
+	
+	.deck-status {
+	}
+	
+	&.deck-menu {
+		.slide {
+		}
+		
+		.deck-current, .no-touch & .slide:hover {
+		}
+	}
+}

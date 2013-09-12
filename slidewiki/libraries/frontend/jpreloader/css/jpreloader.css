@@ -1,0 +1,35 @@
+#jpreOverlay {
+	background-color: #000000;
+}
+#jpreSlide{
+	font-size:22px;
+	font-weight:bold;
+	color:#ccc;
+	text-align:center;
+	width:50%;
+	height:30%;
+}
+#jpreLoader{
+	width:300px;
+	height:25px;
+	border:1px inset #888;
+	border-radius:25px;
+	-moz-border-radius:25px;
+	-webkit-border-radius:25px;
+}
+
+#jpreBar {
+	background:#0DA1D5 url(../images/bar.png);
+	border-radius:25px;
+	-moz-border-radius:25px;
+	-webkit-border-radius:25px;
+}
+
+#jprePercentage {
+	color:#ccc;
+	font-family:"Trebuchet MS",Arial,Helvetica,sans-serif;
+	font-weight:bold;
+	text-align:center;
+	text-shadow:1px 1px 1px #333;
+	top:-100%;
+}

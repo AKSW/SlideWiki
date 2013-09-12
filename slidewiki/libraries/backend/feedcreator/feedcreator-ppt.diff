@@ -1,0 +1,384 @@
+--- feedcreator.class.php	Mon Oct 11 20:12:36 2004
++++ feedcreator-ppt.class.php	Mon Nov 21 18:58:50 2005
+@@ -1,12 +1,14 @@
+ <?php
+ /***************************************************************************
+ 
+-FeedCreator class v1.7.2
++FeedCreator class v1.7.2-ppt
+ originally (c) Kai Blankenhorn
+ www.bitfolge.de
+ kaib@bitfolge.de
+ v1.3 work by Scott Reynen (scott@randomchaos.com) and Kai Blankenhorn
+ v1.5 OPML support by Dirk Clemens
++v1.7.2-mod on-the-fly feed generation by Fabian Wolf (info@f2w.de)
++v1.7.2-ppt ATOM 1.0 support by Mohammad Hafiz bin Ismail (mypapit@gmail.com)
+ 
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Lesser General Public
+@@ -27,6 +29,14 @@
+ 
+ Changelog:
+ 
++v1.7.2-ppt	11-21-05 
++	added Atom 1.0 support
++	added enclosure support for RSS 2.0/ATOM 1.0
++	added docs for v1.7.2-ppt only! 
++	
++v1.7.2-mod	03-12-05
++	added output function outputFeed for on-the-fly feed generation
++
+ v1.7.2	10-11-04
+ 	license changed to LGPL
+ 
+@@ -138,6 +148,14 @@
+     //optional
+     item->descriptionTruncSize = 500;
+     item->descriptionHtmlSyndicated = true;
++    
++    //optional (enclosure)
++    $item->enclosure = new EnclosureItem();
++    $item->enclosure->url='http://http://www.dailyphp.net/media/voice.mp3';
++    $item->enclosure->length="950230";
++    $item->enclosure->type='audio/x-mpeg'
++    
++    
+ 
+     $item->date = $data->newsdate; 
+     $item->source = "http://www.dailyphp.net"; 
+@@ -147,9 +165,12 @@
+ } 
+ 
+ // valid format strings are: RSS0.91, RSS1.0, RSS2.0, PIE0.1 (deprecated),
+-// MBOX, OPML, ATOM, ATOM0.3, HTML, JS
++// MBOX, OPML, ATOM, ATOM10, ATOM0.3, HTML, JS
+ echo $rss->saveFeed("RSS1.0", "news/feed.xml");
+ 
++//to generate "on-the-fly"
++$rss->outputFeed("RSS1.0");
++
+ 
+ ***************************************************************************
+ *          A little setup                                                 *
+@@ -164,7 +185,8 @@
+ /**
+  * Version string.
+  **/
+-define("FEEDCREATOR_VERSION", "FeedCreator 1.7.2");
++ 
++define("FEEDCREATOR_VERSION", "FeedCreator 1.7.2-ppt (info@mypapit.net)");
+ 
+ 
+ 
+@@ -201,6 +223,17 @@
+ 	var $date;
+ 	
+ 	/**
++	 * Add <enclosure> element tag RSS 2.0
++	 * modified by : Mohammad Hafiz bin Ismail (mypapit@gmail.com)
++	 *
++	 *
++	 * display :
++	 * <enclosure length="17691" url="http://something.com/picture.jpg" type="image/jpeg" />
++	 * 
++	 */
++	var $enclosure;
++	
++	/**
+ 	 * Any additional elements to include as an assiciated array. All $key => $value pairs
+ 	 * will be included unencoded in the feed item in the form
+ 	 *     <$key>$value</$key>
+@@ -214,6 +247,26 @@
+ 	// var $source;
+ }
+ 
++class EnclosureItem extends HtmlDescribable {
++	/*
++	* 
++	* core variables
++	*
++	**/
++	var $url,$length,$type;
++	
++	/*
++	* For use with another extension like Yahoo mRSS
++	* Warning :
++	* These variables might not show up in 
++	* later release / not finalize yet!
++	*
++	*/
++	var $width, $height, $title, $description, $keywords, $thumburl;
++	
++	var $additionalElements = Array();
++
++}
+ 
+ 
+ /**
+@@ -265,6 +318,7 @@
+ }
+ 
+ 
++
+ /**
+  * An FeedHtmlField describes and generates
+  * a feed, item or image html field (probably a description). Output is 
+@@ -333,6 +387,63 @@
+ class UniversalFeedCreator extends FeedCreator {
+ 	var $_feed;
+ 	
++	function _setMIME($format) {
++		switch (strtoupper($format)) {
++			
++			case "2.0":
++				// fall through
++			case "RSS2.0":
++				header('Content-type: text/xml', true);
++				break;
++			
++			case "1.0":
++				// fall through
++			case "RSS1.0":
++				header('Content-type: text/xml', true);
++				break;
++			
++			case "PIE0.1":
++				header('Content-type: text/xml', true);
++				break;
++			
++			case "MBOX":
++				header('Content-type: text/plain', true);
++				break;
++			
++			case "OPML":
++				header('Content-type: text/xml', true);
++				break;
++				
++			case "ATOM":
++				// fall through: always the latest ATOM version
++			case "ATOM1.0":
++				header('Content-type: application/xml', true);
++				break;
++				
++			case "ATOM0.3":
++				header('Content-type: application/xml', true);
++				break;
++	
++				
++			case "HTML":
++				header('Content-type: text/html', true);
++				break;
++			
++			case "JS":
++				// fall through
++			case "JAVASCRIPT":
++				header('Content-type: text/javascript', true);
++				break;
++
++			default:
++			case "0.91":
++				// fall through
++			case "RSS0.91":
++				header('Content-type: text/xml', true);
++				break;
++		}
++	}
++	
+ 	function _setFormat($format) {
+ 		switch (strtoupper($format)) {
+ 			
+@@ -368,11 +479,15 @@
+ 				
+ 			case "ATOM":
+ 				// fall through: always the latest ATOM version
++			case "ATOM1.0":
++				$this->_feed = new AtomCreator10();
++				break;
++			
+ 				
+ 			case "ATOM0.3":
+ 				$this->_feed = new AtomCreator03();
+ 				break;
+-				
++							
+ 			case "HTML":
+ 				$this->_feed = new HTMLCreator();
+ 				break;
+@@ -445,6 +560,20 @@
+       $this->_feed->useCached($filename, $timeout);
+    }
+ 
++   
++   /**
++	* Outputs feed to the browser - needed for on-the-fly feed generation (like it is done in WordPress, etc.)
++	*
++	* @param	format	string	format the feed should comply to. Valid values are:
++    * 							"PIE0.1" (deprecated), "mbox", "RSS0.91", "RSS1.0", "RSS2.0", "OPML", "ATOM0.3".
++	*/
++   function outputFeed($format='RSS0.91') {
++		$this->_setFormat($format);
++		$this->_setMIME($format);
++		$this->_feed->outputFeed();
++   }
++   
++   
+ }
+ 
+ 
+@@ -692,6 +821,17 @@
+ 			echo "<br /><b>Error creating feed file, please check write permissions.</b><br />";
+ 		}
+ 	}
++
++	/**
++	 * Outputs this feed directly to the browser - for on-the-fly feed generation
++	 * @since 1.7.2-mod
++	 *
++	 * still missing: proper header output - currently you have to add it manually
++	 */
++	function outputFeed() {
++		echo $this->createFeed();
++	}
++
+ 	
+ }
+ 
+@@ -711,7 +851,7 @@
+ 	function FeedDate($dateString="") {
+ 		if ($dateString=="") $dateString = date("r");
+ 		
+-		if (is_integer($dateString)) {
++		if (is_numeric($dateString)) {
+ 			$this->unix = $dateString;
+ 			return;
+ 		}
+@@ -770,7 +910,7 @@
+ 	/**
+ 	 * Gets the date stored in this FeedDate as an ISO 8601 date.
+ 	 *
+-	 * @return a date in ISO 8601 format
++	 * @return a date in ISO 8601 (RFC 3339) format
+ 	 */
+ 	function iso8601() {
+ 		$date = gmdate("Y-m-d\TH:i:sO",$this->unix);
+@@ -779,6 +919,7 @@
+ 		return $date;
+ 	}
+ 	
++		
+ 	/**
+ 	 * Gets the date stored in this FeedDate as unix time stamp.
+ 	 *
+@@ -997,8 +1138,23 @@
+ 				$feed.= "            <guid>".htmlspecialchars($this->items[$i]->guid)."</guid>\n";
+ 			}
+ 			$feed.= $this->_createAdditionalElements($this->items[$i]->additionalElements, "        ");
++			
++			if ($this->RSSVersion == "2.0" && $this->items[$i]->enclosure != NULL)
++				{
++				                $feed.= "            <enclosure url=\"";
++				                $feed.= $this->items[$i]->enclosure->url;
++				                $feed.= "\" length=\"";
++				                $feed.= $this->items[$i]->enclosure->length;
++				                $feed.= "\" type=\"";
++				                $feed.= $this->items[$i]->enclosure->type;
++				                $feed.= "\"/>\n";
++		            	}
++            	
++		
++		
+ 			$feed.= "        </item>\n";
+ 		}
++		
+ 		$feed.= "    </channel>\n";
+ 		$feed.= "</rss>\n";
+ 		return $feed;
+@@ -1072,7 +1228,88 @@
+ 	}
+ }
+ 
++/**
++ * AtomCreator10 is a FeedCreator that implements the atom specification,
++ * as in http://www.atomenabled.org/developers/syndication/atom-format-spec.php
++ * Please note that just by using AtomCreator10 you won't automatically
++ * produce valid atom files. For example, you have to specify either an editor
++ * for the feed or an author for every single feed item.
++ *
++ * Some elements have not been implemented yet. These are (incomplete list):
++ * author URL, item author's email and URL, item contents, alternate links, 
++ * other link content types than text/html. Some of them may be created with
++ * AtomCreator10::additionalElements.
++ *
++ * @see FeedCreator#additionalElements
++ * @since 1.7.2-mod (modified)
++ * @author Mohammad Hafiz Ismail (mypapit@gmail.com)
++ */
++ class AtomCreator10 extends FeedCreator {
++ 
++	function AtomCreator10() {
++		$this->contentType = "application/atom+xml";
++		$this->encoding = "utf-8";
++	}
++
++	function createFeed() {
++		$feed = "<?xml version=\"1.0\" encoding=\"".$this->encoding."\"?>\n";
++		$feed.= $this->_createGeneratorComment();
++		$feed.= $this->_createStylesheetReferences();
++		$feed.= "<feed xmlns=\"http://www.w3.org/2005/Atom\"";
++		if ($this->language!="") {
++			$feed.= " xml:lang=\"".$this->language."\"";
++		}
++		$feed.= ">\n"; 
++		$feed.= "    <title>".htmlspecialchars($this->title)."</title>\n";
++		$feed.= "    <subtitle>".htmlspecialchars($this->description)."</subtitle>\n";
++		$feed.= "    <link rel=\"alternate\" type=\"text/html\" href=\"".htmlspecialchars($this->link)."\"/>\n";
++		$feed.= "    <id>".htmlspecialchars($this->link)."</id>\n";
++		$now = new FeedDate();
++		$feed.= "    <updated>".htmlspecialchars($now->iso8601())."</updated>\n";
++		if ($this->editor!="") {
++			$feed.= "    <author>\n";
++			$feed.= "        <name>".$this->editor."</name>\n";
++			if ($this->editorEmail!="") {
++				$feed.= "        <email>".$this->editorEmail."</email>\n";
++			}
++			$feed.= "    </author>\n";
++		}
++		$feed.= "    <generator>".FEEDCREATOR_VERSION."</generator>\n";
++		$feed.= "<link rel=\"self\" type=\"application/atom+xml\" href=\"". $this->syndicationURL . "\" />\n";
++		$feed.= $this->_createAdditionalElements($this->additionalElements, "    ");
++		for ($i=0;$i<count($this->items);$i++) {
++			$feed.= "    <entry>\n";
++			$feed.= "        <title>".htmlspecialchars(strip_tags($this->items[$i]->title))."</title>\n";
++			$feed.= "        <link rel=\"alternate\" type=\"text/html\" href=\"".htmlspecialchars($this->items[$i]->link)."\"/>\n";
++			if ($this->items[$i]->date=="") {
++				$this->items[$i]->date = time();
++			}
++			$itemDate = new FeedDate($this->items[$i]->date);
++			$feed.= "        <published>".htmlspecialchars($itemDate->iso8601())."</published>\n";
++			$feed.= "        <updated>".htmlspecialchars($itemDate->iso8601())."</updated>\n";
++			$feed.= "        <id>".htmlspecialchars($this->items[$i]->link)."</id>\n";
++			$feed.= $this->_createAdditionalElements($this->items[$i]->additionalElements, "        ");
++			if ($this->items[$i]->author!="") {
++				$feed.= "        <author>\n";
++				$feed.= "            <name>".htmlspecialchars($this->items[$i]->author)."</name>\n";
++				$feed.= "        </author>\n";
++			}
++			if ($this->items[$i]->description!="") {
++				$feed.= "        <summary>".htmlspecialchars($this->items[$i]->description)."</summary>\n";
++			}
++			if ($this->items[$i]->enclosure != NULL) {
++			$feed.="        <link rel=\"enclosure\" href=\"". $this->items[$i]->enclosure->url ."\" type=\"". $this->items[$i]->enclosure->type."\"  length=\"". $this->items[$i]->enclosure->length . "\" />\n";
++			}
++			$feed.= "    </entry>\n";
++		}
++		$feed.= "</feed>\n";
++		return $feed;
++	}
+ 
++	
++}
++ 
++ 
+ /**
+  * AtomCreator03 is a FeedCreator that implements the atom specification,
+  * as in http://www.intertwingly.net/wiki/pie/FrontPage.

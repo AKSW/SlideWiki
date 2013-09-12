@@ -1,0 +1,43 @@
+# Instant Picture Creator
+# .htaccess
+#
+# @author Michael Haschke @ eye48.com
+# @version $Id: $
+
+# please replace every '/path/to/instantpicture.php' by
+# the location of instantpicture.php on your server
+
+# what image type are wrapped by Instant Picture
+# Example: <FilesMatch "\.(png|PNG)"> (only for Portable Network Graphics) )
+<FilesMatch "\.(gif|jpg|jpeg|png|GIF|JPG|JPEG|PNG)">
+
+	<IfModule mod_rewrite.c>
+		# try to use Apache's Rewrite module
+		RewriteEngine on
+		RewriteCond %{REQUEST_FILENAME} -f
+		RewriteRule . /libraries/backend/Instant-Picture-Creator/instantpicture.php?picture=%{REQUEST_URI}?%{QUERY_STRING}
+	</IfModule>
+
+	<IfModule !mod_rewrite.c>
+
+		# Rewrite module is not available, fallback to AddType/AddHandler and Action
+		<IfModule mod_mime.c>
+			<IfModule mod_actions.c>
+				AddType application/x-httpd-parse .jpg .JPG .jpeg .JPEG .gif .GIF .png .PNG
+				# sometimes AddType don't work but AddHandler does
+				# in this case uncomment the AddHandler line and comment out the AddType line
+				#AddHandler application/x-httpd-parse .jpg .JPG .jpeg .JPEG .gif .GIF .png .PNG
+				Action application/x-httpd-parse "/libraries/backend/Instant-Picture-Creator/instantpicture.php?picture="
+			</IfModule>
+		</IfModule>
+
+		<IfModule !mod_mime.c>
+			# neither Rewrite nor AddType/Action works, fallback to Redirect (Apache's Alias module)
+			<IfModule mod_alias.c>
+				RedirectMatch temp "^(.*)$" http://localhost/libraries/backend/Instant-Picture-Creator/instantpicture.php$1
+			</IfModule>
+		</IfModule>
+
+	</IfModule>
+
+</FilesMatch>

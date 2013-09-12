@@ -1,0 +1,165 @@
+/* 
+    Document   : stream
+    Created on : Feb 8, 2013, 4:59:59 PM
+    Author     : maayan
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;    
+}
+.list-panel{
+    min-height:50px;
+    width: 230px; 
+    float:left;
+    position: fixed; 
+    background-color: #eeffcc;
+    padding: 3px;
+    border: #fff solid 1px;
+    border-radius:5px;
+    max-height: 550px;
+    overflow: auto;
+}
+.filter[filter='1']{
+    background-image: none;    
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.45) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+    outline: 0 none;
+    background-color:#57A957;
+}
+.filter[filter='0']{
+    color: #025402 !important;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75) !important;
+}
+article#activity_stream{
+    margin-top:25px;
+}
+
+.activity-stream{
+    float:right; 
+    border-left: #57A957 dotted thin;
+    padding-left:5px;
+    width: 720px;
+}
+.activity{
+
+    padding:3px;
+    margin:2px;
+    border-width: 1px;
+    border-style: solid;
+    width:45%;    
+    box-shadow: 3px 2px 3px 1px grey;
+    min-height: 55px;
+    overflow:hidden;
+    display: block;    
+    position: relative;
+    z-index: 2;
+}
+.activity[data-side='l']{
+    clear: left;
+    float: left;
+}
+.activity[data-side='r']{
+    clear: right;
+    float: right;
+}
+.activity .timestamp{
+    font-weight:bold;
+    color: #AAAAAA;
+}
+.user-picture{    
+    float:left;
+    width:55px;
+}
+.user-picture-tiny{    
+    float:left;
+    width:25px;
+}
+.activity-text{
+    padding-left:65px;
+}
+.in_the_list{
+    clear:both;
+    margin: 5px 0 5px 0;
+    cursor:pointer;
+}
+.in_the_list :hover{
+    background-color: green !important;
+    color: white;
+}
+.in_the_list[item_checked='1'] :hover{
+    background: url(/static/img/check.png);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 18px;
+    background-color: green !important;
+    color: white;
+}
+.in_the_list[item_checked='1']{
+    background: url(/static/img/check.png);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: 18px;
+}
+.user-picture.no_photo{
+    display:none !important;
+    width:0px !important;
+}
+.activity-text.no_photo{
+    padding-left:5px !important;
+}
+
+.followed_deck, .collapsed_followed_deck{
+    border-color: lightcoral;    
+}
+.followed_slide, .collapsed_followed_slide{
+    border-color: lightgray;
+}
+.followed_user, .collapsed_followed_user{
+    border-color: lightseagreen;
+}
+.created_deck, .collapsed_created_deck{
+    border-color: lightgreen;
+}
+.created_deck_revision, .collapsed_created_deck_revision{
+    border-color: lightsalmon;
+}
+.created_slide, .collapsed_created_slide{
+    border-color: lightskyblue;
+}
+.created_slide_revision, .collapsed_created_slide_revision{
+    border-color: lightsteelblue;
+}
+.translated_slide, .collapsed_translated_slide{
+    border-color: rosybrown;
+}
+.translated_slide_revision, .collapsed_translated_slide_revision{
+    border-color: thistle;
+}
+.translated_deck, .collapsed_translated_deck{
+    border-color: gold;
+}
+.commented_slide_revision, .collapsed_commented_slide_revision{
+    border-color: orangered;
+}
+.commented_deck_revision, .collapsed_commented_deck_revision{
+    border-color: darkkhaki;
+}
+.created_question, .collapsed_created_question{
+    border-color: dodgerblue;
+}
+.created_question_revision, .collapsed_created_question_revision{
+    border-color: palevioletred;
+}
+.created_test, .collapsed_created_test{
+    border-color: aquamarine;
+}
+.answered_test, .collapsed_answered_test{
+    border-color: appworkspace;
+}
+
+
+
+
+
+

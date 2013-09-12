@@ -1,0 +1,116 @@
+RewriteEngine on
+
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+#home page rules
+RewriteRule documentation/$ ?url=main/deck&deck=9 [NC,L]
+RewriteRule documentation$ ?url=main/deck&deck=9 [NC,L]
+RewriteRule ^activities\/*$ ?url=static/activities [NC,L]
+RewriteRule ^admin\/*$ ?url=admin/index [NC,L]
+RewriteRule ^confirmEditorship/user/([0-9]+)/deck/([0-9]+)$ ./?url=user/confirmEditorship&user=$1&deck=$2 [NC,L]
+
+RewriteRule ^deck/([0-9]+)/latest\/*$ ?url=main/item&type=deck&id=$1 [NC,L]
+RewriteRule ^slide/([0-9]+)/latest\/*$ ?url=main/item&type=slide&id=$1 [NC,L]
+RewriteRule ^slide/([0-9]+)/user/([0-9]+)\/*$ ?url=main/item&type=slide&id=$1&user=$2 [NC,L]
+RewriteRule ^deck/([0-9]+)/user/([0-9]+)\/*$ ?url=main/item&type=deck&id=$1&user=$2 [NC,L]
+RewriteRule ^slide/([0-9]+)/latest/user/([0-9]+)\/*$ ?url=main/item&type=slide&id=$1&user=$2 [NC,L]
+RewriteRule ^deck/([0-9]+)/latest/user/([0-9]+)\/*$ ?url=main/item&type=deck&id=$1&user=$2 [NC,L]
+
+RewriteRule ^deck/([0-9]+)(_[a-z\-]+)(\#*)(.*)$ ?url=main/deck&deck=$1\#$3 [NC,L] # show decks
+RewriteRule ^deck/([0-9]+)(\#*)(.*)$ ?url=main/deck&deck=$1\#$3 [NC,L] # show decks old version (temporal)
+RewriteRule deck/$ documentation [NC,L] # forward empty deck to documentation deck
+RewriteRule deck/create$ ?url=main/newDeck [NC,L]
+RewriteRule ^static/deck/([0-9]+)$ ?url=static/deck&id=$1 [NC,L] # show deck static page
+RewriteRule ^static/deck/([0-9]+)(_[a-z\-]+)$ ?url=static/deck&id=$1 [NC,L] # show deck static page
+RewriteRule ^static/test/([0-9]+)$ ?url=static/test&id=$1 [NC,L] # show deck static page
+
+RewriteRule ^print/deck/([0-9]+)(\#*)$ ./?url=main/print_deck&deck_id=$1 [NC,L]
+
+RewriteRule ^play/deck/([0-9]+)(\#*)(.*)$ ./?url=main/play&deck=$1\#$2 [NC,L]
+RewriteRule ^playImpress/deck/([0-9]+)(\#*)(.*)$ ./?url=main/playImpress&deck=$1\#$2 [NC,L]
+RewriteRule ^play/style/([0-9]+)/deck/([0-9]+)(\#*)(.*)$ ./?url=main/play&deck=$2&style=$1#$3 [NC,L]
+RewriteRule ^playImpress/style/([0-9]+)/deck/([0-9]+)(\#*)(.*)$ ./?url=main/playImpress&deck=$2&style=$1#$3 [NC,L]
+RewriteRule ^play/transition/([0-9]+)/deck/([0-9]+)(\#*)(.*)$ ./?url=main/play&deck=$2&transition=$1#$3 [NC,L]
+RewriteRule ^playImpress/transition/([0-9]+)/deck/([0-9]+)(\#*)(.*)$ ./?url=main/playImpress&deck=$2&transition=$1#$3 [NC,L]
+RewriteRule ^play/style/([0-9]+)/transition/([0-9]+)/deck/([0-9]+)(\#*)(.*)$ ./?url=main/play&deck=$3&style=$1&transition=$2#$4 [NC,L]
+RewriteRule ^playImpress/style/([0-9]+)/transition/([0-9]+)/deck/([0-9]+)(\#*)(.*)$ ./?url=main/playImpress&deck=$3&style=$1&transition=$2#$4 [NC,L]
+RewriteRule ^play/offscaling/style/([0-9]+)/transition/([0-9]+)/deck/([0-9]+)(\#*)(.*)$ ./?url=main/play&deck=$3&style=$1&scaling=0&transition=$2#$4 [NC,L]
+
+RewriteRule ^playG/([0-9]+)$ ./?url=main/playG&deck=$1 [NC,L]
+
+RewriteRule ^playSync/deck/([0-9]+)(\#*)(.*)$ ./?url=main/playSync&deck=$1\#$2 [NC,L]
+RewriteRule ^playSync/sid/([0-9]+)/deck/([0-9]+)(\#*)(.*)$ ./?url=main/playSync&sid=$1&deck=$2\#$3 [NC,L]
+RewriteRule ^playSync/sid/([0-9]+)/style/([0-9]+)/deck/([0-9]+)(\#*)(.*)$ ./?url=main/playSync&sid=$1&deck=$3&style=$2#$4 [NC,L]
+RewriteRule ^playSync/sid/([0-9]+)/transition/([0-9]+)/deck/([0-9]+)(\#*)(.*)$ ./?url=main/playSync&sid=$1&deck=$3&transition=$2#$4 [NC,L]
+RewriteRule ^playSync/sid/([0-9]+)/style/([0-9]+)/transition/([0-9]+)/deck/([0-9]+)(\#*)(.*)$ ./?url=main/playSync&sid=$1&deck=$4&style=$2&transition=$3#$5 [NC,L]
+RewriteRule ^playSync/sid/([0-9]+)/offscaling/style/([0-9]+)/transition/([0-9]+)/deck/([0-9]+)(\#*)(.*)$ ./?url=main/playSync&sid=$1&deck=$4&style=$2&scaling=0&transition=$3#$5 [NC,L]
+
+RewriteRule ^playSync/style/([0-9]+)/deck/([0-9]+)(\#*)(.*)$ ./?url=main/playSync&deck=$2&style=$1#$3 [NC,L]
+RewriteRule ^playSync/transition/([0-9]+)/deck/([0-9]+)(\#*)(.*)$ ./?url=main/playSync&deck=$2&transition=$1#$3 [NC,L]
+RewriteRule ^playSync/style/([0-9]+)/transition/([0-9]+)/deck/([0-9]+)(\#*)(.*)$ ./?url=main/playSync&deck=$3&style=$1&transition=$2#$4 [NC,L]
+RewriteRule ^playSync/offscaling/style/([0-9]+)/transition/([0-9]+)/deck/([0-9]+)(\#*)(.*)$ ./?url=main/playSync&deck=$3&style=$1&scaling=0&transition=$2#$4 [NC,L]
+
+#play with short urls
+RewriteRule ^sp/(.*)$ ./?url=main/playSync&short=$1 [NC,L]
+
+RewriteRule ^slide/([0-9]+)\/*$ ?url=main/slide&slide=$1 [NC,L]
+
+
+RewriteRule import/pptx$ ?url=import/uploadOOXML [NC,L]
+RewriteRule import/html$ ?url=import/uploadHTML [NC,L]
+RewriteRule import/latex$ ?url=import/uploadLATEX [NC,L]
+
+RewriteRule brand/create$ ?url=brand/create [NC,L]
+
+RewriteRule feed/decks/featured$ ./?url=feed/decks&show=featured [NC,L]
+RewriteRule feed/decks/featured/format/(.*)$ ./?url=feed/decks&show=featured&output=$1 [NC,L]
+RewriteRule feed/decks/popular$ ./?url=feed/decks&show=popular [NC,L]
+RewriteRule feed/decks/popular/format/(.*)$ ./?url=feed/decks&show=popular&output=$1 [NC,L]
+RewriteRule feed/decks/new$ ./?url=feed/decks&show=new [NC,L]
+RewriteRule feed/decks/new/format/(.*)$ ./?url=feed/decks&show=new&output=$1 [NC,L]
+RewriteRule feed/activities$ ./?url=feed/activities [NC,L]
+RewriteRule feed/activities/format/(.*)$  ./?url=feed/activities&output=$1 [NC,L]
+
+RewriteRule search/order/popularity$ ./?url=search/view&order=popularity [NC,L]
+RewriteRule search/order/date$ ./?url=search/view&order=date [NC,L]
+RewriteRule search/order/featured$ ./?url=search/view&order=featured [NC,L]
+RewriteRule search/keyword/(.*)$ ./?url=search/view&keywords=$1 [NC,L]
+
+#rules for ajax calls
+RewriteRule ajax/getDeckTree/deck/([0-9]+)$ ./?url=ajax/getDeckTree&deck=$1 [NC,L]
+RewriteRule ajax/getDeckChildrenTree/deck/([0-9]+)$ ./?url=ajax/getDeckChildrenTree&deck=$1 [NC,L]
+RewriteRule ajax/showDeckContent/([0-9]+)$ ./?url=ajax/showDeckContent&id=$1 [NC,L]
+RewriteRule ajax/showDeckPreviewProgressive/([0-9]+)/from/([0-9]+)$ ./?url=ajax/showDeckPreviewProgressive&id=$1&from=$2 [NC,L]
+RewriteRule ajax/editDeck/([0-9]+)$ ./?url=ajax/editDeck&id=$1 [NC,L]
+RewriteRule ajax/saveDeck/([0-9]+)/root/([0-9]+)/node/(.*)/data/(.*)$ ./?url=ajax/saveDeck&id=$1&root_deck=$2&node_id=$3&$4 [NC,L]
+RewriteRule ajax/currentUser$ ./?url=ajax/getCurrentUser [NC,L]
+RewriteRule ajax/slidesByRange/deck/([0-9]+)/from/([0-9]+)/to/([0-9]+)$ ./?url=ajax/getSlidesByRange&id=$1&from=$2&to=$3 [NC,L]
+RewriteRule ajax/css/([0-9]+)$ ./?url=ajax/getCSS&id=$1 [NC,L]
+RewriteRule ajax/transition/css/([0-9]+)$ ./?url=ajax/getTransitionCSS&id=$1 [NC,L]
+RewriteRule ajax/captcha$ ./?url=ajax/captcha [NC,L]
+RewriteRule ajax/saveSlideChanges$ ./?url=ajax/saveSlideContentChanges [NC,L]
+
+#rules for user
+RewriteRule user/([0-9]+)$ ./?url=user/profile&id=$1 [NC,L]
+RewriteRule user/([0-9]+)/edit$ ./?url=user/profileEdit&id=$1 [NC,L]
+RewriteRule user/([0-9]+)/scores/$ ./?url=user/scores&id=$1 [NC,L]
+RewriteRule user/([0-9]+)/tests/$ ./?url=user/tests&id=$1 [NC,L]
+RewriteRule tests/type/user$ ./?url=main/tests&type=user [NC,L]
+RewriteRule user/feed$ ?url=user/feed [NC,L]
+RewriteRule user/alldecks/([0-9]+)$ ./?url=user/getAllDeckContributions&id=$1 [NC,L]
+
+RewriteRule facebook/login?$ ./?url=facebook/login&code=$2 [QSA]
+
+#rules for information
+RewriteRule imprint$ ?url=info/imprint [NC,L]
+RewriteRule termsOfUse$ ?url=info/termsOfUse [NC,L]
+
+
+#error handling
+RewriteRule ^error/([0-9]+)$ ./?url=error/show&code=$1 [NC,L]
+
+#styles and transitions
+RewriteRule ^style/([0-9]+)/deck/([0-9]+)$ ./?url=main/style&id=$1&deck=$2 [NC,L]
+
+
