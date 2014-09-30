@@ -6,7 +6,7 @@ SlideWiki empowers communities of instructors, teachers, lecturers, academics to
 REQUIREMENTS
 
 1. Apache 2.2 or higher
-2. PHP 5.3 (for now the PHP 5.4 and upper versions cause bugs)
+2. PHP 5.4
 3. MySQL 5.5 or higher
 4. **Optional**: we recommend to use PhpMyAdmin to manage the database
 
